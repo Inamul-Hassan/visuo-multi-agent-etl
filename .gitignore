@@ -6,3 +6,6 @@
 
 # Poetry
 poetry.lock
+
+# Python pycache
+__pycache__/
