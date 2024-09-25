@@ -1,0 +1,82 @@
+[
+    {
+        "Column Name": "invoice_id",
+        "Data Type": "int64",
+        "Description": "This field represents the invoice id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 64839,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 64839.0
+        }
+    },
+    {
+        "Column Name": "customer_id",
+        "Data Type": "int64",
+        "Description": "This field represents the customer id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 5000,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 5000.0
+        }
+    },
+    {
+        "Column Name": "contract_id",
+        "Data Type": "int64",
+        "Description": "This field represents the contract id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 9914,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 9914.0
+        }
+    },
+    {
+        "Column Name": "invoice_date",
+        "Data Type": "object",
+        "Description": "This field represents the invoice date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3865,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "due_date",
+        "Data Type": "object",
+        "Description": "This field represents the due date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3872,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "amount",
+        "Data Type": "object",
+        "Description": "This field represents the amount.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 64839,
+            "missing_values": 0,
+            "max_length": 19
+        }
+    },
+    {
+        "Column Name": "status",
+        "Data Type": "object",
+        "Description": "This field represents the status.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3,
+            "missing_values": 0,
+            "max_length": 7
+        }
+    }
+]

@@ -1,0 +1,158 @@
+[
+    {
+        "Column Name": "customer_id",
+        "Data Type": "int64",
+        "Description": "This field represents the customer id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 5000,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 5000.0
+        }
+    },
+    {
+        "Column Name": "company_name",
+        "Data Type": "object",
+        "Description": "This field represents the company name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 2318,
+            "missing_values": 2521,
+            "max_length": 37
+        }
+    },
+    {
+        "Column Name": "first_name",
+        "Data Type": "object",
+        "Description": "This field represents the first name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 2405,
+            "missing_values": 0,
+            "max_length": 11
+        }
+    },
+    {
+        "Column Name": "last_name",
+        "Data Type": "object",
+        "Description": "This field represents the last name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 716,
+            "missing_values": 0,
+            "max_length": 21
+        }
+    },
+    {
+        "Column Name": "email",
+        "Data Type": "object",
+        "Description": "This field represents the email.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 4998,
+            "missing_values": 0,
+            "max_length": 43
+        }
+    },
+    {
+        "Column Name": "phone_number",
+        "Data Type": "object",
+        "Description": "This field represents the phone number.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 5000,
+            "missing_values": 0,
+            "max_length": 21
+        }
+    },
+    {
+        "Column Name": "street",
+        "Data Type": "object",
+        "Description": "This field represents the street.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 5000,
+            "missing_values": 0,
+            "max_length": 37
+        }
+    },
+    {
+        "Column Name": "city",
+        "Data Type": "object",
+        "Description": "This field represents the city.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 4567,
+            "missing_values": 0,
+            "max_length": 27
+        }
+    },
+    {
+        "Column Name": "state",
+        "Data Type": "object",
+        "Description": "This field represents the state.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 50,
+            "missing_values": 0,
+            "max_length": 2
+        }
+    },
+    {
+        "Column Name": "country",
+        "Data Type": "object",
+        "Description": "This field represents the country.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1,
+            "missing_values": 0,
+            "max_length": 3
+        }
+    },
+    {
+        "Column Name": "postal_code",
+        "Data Type": "int64",
+        "Description": "This field represents the postal code.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 4898,
+            "missing_values": 0,
+            "min_value": 18.0,
+            "max_value": 99971.0
+        }
+    },
+    {
+        "Column Name": "customer_type",
+        "Data Type": "object",
+        "Description": "This field represents the customer type.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 2,
+            "missing_values": 0,
+            "max_length": 11
+        }
+    },
+    {
+        "Column Name": "preferred_contact",
+        "Data Type": "object",
+        "Description": "This field represents the preferred contact.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3,
+            "missing_values": 0,
+            "max_length": 5
+        }
+    },
+    {
+        "Column Name": "customer_since",
+        "Data Type": "object",
+        "Description": "This field represents the customer since.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1633,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    }
+]

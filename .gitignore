@@ -1,0 +1,8 @@
+# Virtual Environment
+.venv
+
+# Environment variables
+.env
+
+# Poetry
+poetry.lock

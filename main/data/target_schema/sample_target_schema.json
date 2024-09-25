@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "string",
+      "description": "Unique identifier for the customer"
+    },
+    "customer_health": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Overall health score of the customer based on various factors"
+        },
+        "factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of factors influencing the health score"
+        }
+      },
+      "required": [
+        "score"
+      ]
+    },
+    "financial_metrics": {
+      "type": "object",
+      "properties": {
+        "total_revenue": {
+          "type": "number",
+          "description": "Total revenue generated from the customer"
+        },
+        "outstanding_balance": {
+          "type": "number",
+          "description": "Current outstanding balance of the customer"
+        },
+        "payment_reliability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Score indicating the customer's payment reliability"
+        }
+      },
+      "required": [
+        "total_revenue",
+        "outstanding_balance"
+      ]
+    },
+    "equipment_summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "equipment_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "efficiency_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Efficiency score of the equipment"
+          },
+          "last_maintenance_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of the last maintenance performed"
+          }
+        },
+        "required": [
+          "equipment_id",
+          "type",
+          "efficiency_score"
+        ]
+      },
+      "description": "Summary of customer's equipment and their status"
+    },
+    "service_insights": {
+      "type": "object",
+      "properties": {
+        "average_response_time": {
+          "type": "string",
+          "format": "duration",
+          "description": "Average time taken to respond to service requests"
+        },
+        "frequent_issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of most frequent issues reported by the customer"
+        }
+      },
+      "required": [
+        "average_response_time"
+      ]
+    }
+  },
+  "required": [
+    "customer_id",
+    "customer_health",
+    "financial_metrics"
+  ]
+}

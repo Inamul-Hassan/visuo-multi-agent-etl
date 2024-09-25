@@ -1,0 +1,137 @@
+[
+    {
+        "Column Name": "plant_id",
+        "Data Type": "int64",
+        "Description": "This field represents the plant id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 15178,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 15178.0
+        }
+    },
+    {
+        "Column Name": "customer_id",
+        "Data Type": "int64",
+        "Description": "This field represents the customer id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 5000,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 5000.0
+        }
+    },
+    {
+        "Column Name": "plant_name",
+        "Data Type": "object",
+        "Description": "This field represents the plant name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 11771,
+            "missing_values": 0,
+            "max_length": 46
+        }
+    },
+    {
+        "Column Name": "manufacturer",
+        "Data Type": "object",
+        "Description": "This field represents the manufacturer.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 11915,
+            "missing_values": 0,
+            "max_length": 38
+        }
+    },
+    {
+        "Column Name": "model",
+        "Data Type": "object",
+        "Description": "This field represents the model.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 15178,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "installation_date",
+        "Data Type": "object",
+        "Description": "This field represents the installation date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1727,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "cooling_capacity",
+        "Data Type": "object",
+        "Description": "This field represents the cooling capacity.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 12408,
+            "missing_values": 0,
+            "max_length": 9
+        }
+    },
+    {
+        "Column Name": "heating_capacity",
+        "Data Type": "object",
+        "Description": "This field represents the heating capacity.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 12368,
+            "missing_values": 0,
+            "max_length": 9
+        }
+    },
+    {
+        "Column Name": "energy_efficiency_rating",
+        "Data Type": "float64",
+        "Description": "This field represents the energy efficiency rating.",
+        "Constraints": {
+            "type": "float64",
+            "unique_values": 15178,
+            "missing_values": 0,
+            "min_value": 13.000963316196604,
+            "max_value": 20.99876778671444
+        }
+    },
+    {
+        "Column Name": "warranty_expiration",
+        "Data Type": "object",
+        "Description": "This field represents the warranty expiration.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3601,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "last_inspection_date",
+        "Data Type": "object",
+        "Description": "This field represents the last inspection date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1541,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "plant_status",
+        "Data Type": "object",
+        "Description": "This field represents the plant status.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3,
+            "missing_values": 0,
+            "max_length": 17
+        }
+    }
+]

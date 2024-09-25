@@ -1,0 +1,114 @@
+[
+    {
+        "Column Name": "maintenance_id",
+        "Data Type": "int64",
+        "Description": "This field represents the maintenance id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 158967,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 158967.0
+        }
+    },
+    {
+        "Column Name": "equipment_id",
+        "Data Type": "int64",
+        "Description": "This field represents the equipment id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 52954,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 52954.0
+        }
+    },
+    {
+        "Column Name": "maintenance_date",
+        "Data Type": "object",
+        "Description": "This field represents the maintenance date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1521,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "maintenance_type",
+        "Data Type": "object",
+        "Description": "This field represents the maintenance type.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3,
+            "missing_values": 0,
+            "max_length": 9
+        }
+    },
+    {
+        "Column Name": "technician_id",
+        "Data Type": "int64",
+        "Description": "This field represents the technician id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 50,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 50.0
+        }
+    },
+    {
+        "Column Name": "service_provider",
+        "Data Type": "object",
+        "Description": "This field represents the service provider.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 101894,
+            "missing_values": 0,
+            "max_length": 40
+        }
+    },
+    {
+        "Column Name": "parts_used",
+        "Data Type": "object",
+        "Description": "This field represents the parts used.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 6912,
+            "missing_values": 0,
+            "max_length": 29
+        }
+    },
+    {
+        "Column Name": "maintenance_duration",
+        "Data Type": "object",
+        "Description": "This field represents the maintenance duration.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 8,
+            "missing_values": 0,
+            "max_length": 7
+        }
+    },
+    {
+        "Column Name": "follow_up_required",
+        "Data Type": "bool",
+        "Description": "This field represents the follow up required.",
+        "Constraints": {
+            "type": "bool",
+            "unique_values": 2,
+            "missing_values": 0
+        }
+    },
+    {
+        "Column Name": "notes",
+        "Data Type": "object",
+        "Description": "This field represents the notes.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 158966,
+            "missing_values": 0,
+            "max_length": 103
+        }
+    }
+]

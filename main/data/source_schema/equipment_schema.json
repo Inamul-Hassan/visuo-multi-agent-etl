@@ -1,0 +1,103 @@
+[
+    {
+        "Column Name": "equipment_id",
+        "Data Type": "int64",
+        "Description": "This field represents the equipment id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 52954,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 52954.0
+        }
+    },
+    {
+        "Column Name": "plant_id",
+        "Data Type": "int64",
+        "Description": "This field represents the plant id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 15178,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 15178.0
+        }
+    },
+    {
+        "Column Name": "equipment_name",
+        "Data Type": "object",
+        "Description": "This field represents the equipment name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 6908,
+            "missing_values": 0,
+            "max_length": 29
+        }
+    },
+    {
+        "Column Name": "equipment_type",
+        "Data Type": "object",
+        "Description": "This field represents the equipment type.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 5,
+            "missing_values": 0,
+            "max_length": 19
+        }
+    },
+    {
+        "Column Name": "serial_number",
+        "Data Type": "object",
+        "Description": "This field represents the serial number.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 52954,
+            "missing_values": 0,
+            "max_length": 15
+        }
+    },
+    {
+        "Column Name": "purchase_date",
+        "Data Type": "object",
+        "Description": "This field represents the purchase date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 1670,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "energy_consumption",
+        "Data Type": "object",
+        "Description": "This field represents the energy consumption.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 52954,
+            "missing_values": 0,
+            "max_length": 27
+        }
+    },
+    {
+        "Column Name": "warranty_expiration",
+        "Data Type": "object",
+        "Description": "This field represents the warranty expiration.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3482,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    },
+    {
+        "Column Name": "maintenance_frequency",
+        "Data Type": "object",
+        "Description": "This field represents the maintenance frequency.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 10,
+            "missing_values": 0,
+            "max_length": 9
+        }
+    }
+]

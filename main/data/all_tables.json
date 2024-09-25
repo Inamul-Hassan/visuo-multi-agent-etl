@@ -1,0 +1,96 @@
+{
+  "contracts": [
+    "contract_id",
+    "customer_id",
+    "contract_number",
+    "contract_type",
+    "start_date",
+    "end_date",
+    "price",
+    "payment_terms",
+    "contract_status",
+    "salesperson_id",
+    "special_terms"
+  ],
+  "customers": [
+    "customer_id",
+    "company_name",
+    "first_name",
+    "last_name",
+    "email",
+    "phone_number",
+    "street",
+    "city",
+    "state",
+    "country",
+    "postal_code",
+    "customer_type",
+    "preferred_contact",
+    "customer_since"
+  ],
+  "equipment": [
+    "equipment_id",
+    "plant_id",
+    "equipment_name",
+    "equipment_type",
+    "serial_number",
+    "purchase_date",
+    "energy_consumption",
+    "warranty_expiration",
+    "maintenance_frequency"
+  ],
+  "invoices": [
+    "invoice_id",
+    "customer_id",
+    "contract_id",
+    "invoice_date",
+    "due_date",
+    "amount",
+    "status"
+  ],
+  "maintenance": [
+    "maintenance_id",
+    "equipment_id",
+    "maintenance_date",
+    "maintenance_type",
+    "technician_id",
+    "service_provider",
+    "parts_used",
+    "maintenance_duration",
+    "follow_up_required",
+    "notes"
+  ],
+  "plants": [
+    "plant_id",
+    "customer_id",
+    "plant_name",
+    "manufacturer",
+    "model",
+    "installation_date",
+    "cooling_capacity",
+    "heating_capacity",
+    "energy_efficiency_rating",
+    "warranty_expiration",
+    "last_inspection_date",
+    "plant_status"
+  ],
+  "service_requests": [
+    "request_id",
+    "customer_id",
+    "equipment_id",
+    "request_date",
+    "description",
+    "priority",
+    "status",
+    "assigned_technician"
+  ],
+  "technicians": [
+    "technician_id",
+    "first_name",
+    "last_name",
+    "email",
+    "phone_number",
+    "certification",
+    "hire_date"
+  ]
+}

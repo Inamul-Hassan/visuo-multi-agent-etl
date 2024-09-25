@@ -1,0 +1,80 @@
+[
+    {
+        "Column Name": "technician_id",
+        "Data Type": "int64",
+        "Description": "This field represents the technician id.",
+        "Constraints": {
+            "type": "int64",
+            "unique_values": 50,
+            "missing_values": 0,
+            "min_value": 1.0,
+            "max_value": 50.0
+        }
+    },
+    {
+        "Column Name": "first_name",
+        "Data Type": "object",
+        "Description": "This field represents the first name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 49,
+            "missing_values": 0,
+            "max_length": 9
+        }
+    },
+    {
+        "Column Name": "last_name",
+        "Data Type": "object",
+        "Description": "This field represents the last name.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 49,
+            "missing_values": 0,
+            "max_length": 19
+        }
+    },
+    {
+        "Column Name": "email",
+        "Data Type": "object",
+        "Description": "This field represents the email.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 50,
+            "missing_values": 0,
+            "max_length": 44
+        }
+    },
+    {
+        "Column Name": "phone_number",
+        "Data Type": "object",
+        "Description": "This field represents the phone number.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 50,
+            "missing_values": 0,
+            "max_length": 21
+        }
+    },
+    {
+        "Column Name": "certification",
+        "Data Type": "object",
+        "Description": "This field represents the certification.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 3,
+            "missing_values": 0,
+            "max_length": 14
+        }
+    },
+    {
+        "Column Name": "hire_date",
+        "Data Type": "object",
+        "Description": "This field represents the hire date.",
+        "Constraints": {
+            "type": "object",
+            "unique_values": 50,
+            "missing_values": 0,
+            "max_length": 10
+        }
+    }
+]
