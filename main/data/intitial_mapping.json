@@ -1,0 +1,107 @@
+{
+   "customer_id": {
+      "Source Field Name(s)": [
+         "customers.customer_id"
+      ],
+      "Necessary Transformations": [],
+      "isDirect": true
+   },
+   "customer_health.score": {
+      "Source Field Name(s)": [
+         "contracts.contract_status",
+         "invoices.status",
+         "service_requests.status",
+         "maintenance.follow_up_required",
+         "plants.plant_status",
+         "equipment.warranty_expiration",
+         "customers.customer_type",
+         "customers.customer_since"
+      ],
+      "Necessary Transformations": "Calculate a score based on the status of contracts, invoices, service requests, maintenance, plant status, warranty expiration, customer type, and customer since. This score will need to be weighted based on the importance of each factor to the overall customer health.",
+      "isDirect": false
+   },
+   "customer_health.factors": {
+      "Source Field Name(s)": [
+         "contracts.contract_status",
+         "invoices.status",
+         "maintenance.follow_up_required",
+         "service_requests.status",
+         "plants.plant_status",
+         "equipment.warranty_expiration",
+         "customers.customer_type",
+         "customers.customer_since"
+      ],
+      "Necessary Transformations": "Combine the values of the source fields into a single string, separated by commas or other delimiters. For example, 'Active, Paid, Yes, Pending, Operational, Expired, Commercial, 2023-01-01'.",
+      "isDirect": false
+   },
+   "financial_metrics.total_revenue": {
+      "Source Field Name(s)": [
+         "invoices.amount"
+      ],
+      "Necessary Transformations": "SUM(invoices.amount) WHERE invoices.customer_id = customer_id",
+      "isDirect": false
+   },
+   "financial_metrics.outstanding_balance": {
+      "Source Field Name(s)": [
+         "invoices.amount",
+         "invoices.status"
+      ],
+      "Necessary Transformations": "Calculate the sum of 'invoices.amount' for invoices with 'invoices.status' as 'unpaid' or 'overdue'.",
+      "isDirect": false
+   },
+   "financial_metrics.payment_reliability": {
+      "Source Field Names": [
+         "invoices.status"
+      ],
+      "Necessary Transformations": "Derive a score based on the payment history. For example, a score of 1 could be assigned to customers with consistent on-time payments, while a score of 0 could be assigned to customers with frequent late payments or outstanding balances.",
+      "isDirect": false
+   },
+   "equipment_summary.equipment_id": {
+      "Source Field Name(s)": [
+         "equipment.equipment_id"
+      ],
+      "Necessary Transformations": [],
+      "isDirect": true
+   },
+   "equipment_summary.type": {
+      "Source Field Name(s)": [
+         "equipment.equipment_type"
+      ],
+      "Necessary Transformations": [],
+      "isDirect": true
+   },
+   "equipment_summary.efficiency_score": [
+      {
+         "Source Field Name(s)": [
+            "equipment.energy_efficiency_rating"
+         ],
+         "Necessary Transformations": [
+            "Normalize the energy efficiency rating to a scale of 0 to 1"
+         ],
+         "isDirect": false
+      }
+   ],
+   "equipment_summary.last_maintenance_date": {
+      "Source Field Name(s)": [
+         "maintenance.maintenance_date"
+      ],
+      "Necessary Transformations": "Find the maximum value of 'maintenance.maintenance_date' for the given equipment_id",
+      "isDirect": false
+   },
+   "service_insights.average_response_time": {
+      "Source Field Name(s)": [
+         "service_requests.request_date",
+         "service_requests.status",
+         "service_requests.assigned_technician"
+      ],
+      "Necessary Transformations": "Calculate the average time difference between request_date and the date when status changes to 'assigned' for each technician. Then calculate the overall average across all technicians.",
+      "isDirect": false
+   },
+   "service_insights.frequent_issues": {
+      "Source Field Name(s)": [
+         "maintenance.notes"
+      ],
+      "Necessary Transformations": "Extract frequent issues from maintenance notes using NLP or keyword analysis.",
+      "isDirect": false
+   }
+}

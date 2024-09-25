@@ -1,13 +1,8 @@
 import json
 import os
 import copy
-from environs import Env
 
 from .tools import AbstractChat
-
-
-env = Env()
-env.read_env()
 
 
 # Will revist this later if going to implement structured response
@@ -29,18 +24,32 @@ class Mapping(TypedDict):
 
 
 class SchemaAnalyzerAgent:
-    def __init__(self,llm:AbstractChat):
+    def __init__(self, llm: AbstractChat, target_schema_path: str, all_tables_path: str):
         self.mapping = {}
         self.model = llm
-        self.target_schema_path = os.getenv("TARGET_SCHEMA_PATH")     
-        with open(self.target_schema_path, 'r') as file:
-            self.target_schema = json.load(file)
-        with open(os.getenv("ALL_TABLES"), 'r') as f:
-                    self.all_tables = json.load(f)
+        self.target_schema_path = target_schema_path
+        self.all_tables_path = all_tables_path
+        self.target_schema = self.load_json(self.target_schema_path)
+        self.all_tables = self.load_json(self.all_tables_path)
         self.fields_dict = self.parse_schema(schema=self.target_schema)
+    
+    @staticmethod
+    def load_json(path: str) -> dict:
+        """
+        Load a JSON file from the given path.
+        """
+        try:
+            with open(path, 'r') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            print(f"File not found: {path}")
+            return {}
+        except json.JSONDecodeError:
+            print(f"Invalid JSON file: {path}")
+            return {}
 
         
-    def parse_schema(self,schema, parent_key:str ='', fields_dict:dict =None)->dict:
+    def parse_schema(self,schema:dict, parent_key:str ='', fields_dict:dict =None)->dict:
         """
         Recursively parse the JSON schema and collect field names and their details.
         """
@@ -63,6 +72,17 @@ class SchemaAnalyzerAgent:
             fields_dict[parent_key] = field_details
 
         return fields_dict
+    
+    def save_to_json(self, data: dict, path: str) -> None:
+        """
+        Save a dictionary to a JSON file at the given path.
+        """
+        try:
+            with open(path, 'w') as file:
+                json.dump(data, file, indent=3)
+            print(f"Successfully saved JSON file at {path}")
+        except Exception as e:
+            print(f"Error saving JSON file: {e}")
     
     def prompt(self,prompt_type:int,target_field:str|None=None,target_details:dict|None=None)->str:
         '''
@@ -99,8 +119,16 @@ class SchemaAnalyzerAgent:
         """
         for target_field, target_details in self.fields_dict.items():
             chat_prompt = self.prompt(1,target_field,target_details)
-            response = self.model.invoke(chat_prompt)
-            response_dict = json.loads(response.split("```")[1].split("json")[1])
-            self.mapping.update(response_dict)
-        
+            try:
+                response = self.model.invoke(chat_prompt)
+            except Exception as e:
+                print(f"Error invoking model: {e}")
+            try:
+                response_dict = json.loads(response.split("```")[1].split("json")[1])
+                self.mapping.update(response_dict)
+            except Exception as e:
+                print(f"Error Response is not in the expected format {response}: {e}")
+                continue
+        # Debug
+        self.save_to_json(self.mapping, "main\data\intitial_mapping.json")
         print(self.mapping)
