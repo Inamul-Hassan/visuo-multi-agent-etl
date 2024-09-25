@@ -129,6 +129,6 @@ class SchemaAnalyzerAgent:
             except Exception as e:
                 print(f"Error Response is not in the expected format {response}: {e}")
                 continue
-        # Debug
         self.save_to_json(self.mapping, "main\data\intitial_mapping.json")
-        print(self.mapping)
+        # Debug
+        #print(self.mapping)

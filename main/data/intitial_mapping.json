@@ -1,7 +1,7 @@
 {
    "customer_id": {
       "Source Field Name(s)": [
-         "customers.customer_id"
+         "customer_id"
       ],
       "Necessary Transformations": [],
       "isDirect": true
@@ -10,28 +10,24 @@
       "Source Field Name(s)": [
          "contracts.contract_status",
          "invoices.status",
-         "service_requests.status",
          "maintenance.follow_up_required",
-         "plants.plant_status",
-         "equipment.warranty_expiration",
-         "customers.customer_type",
-         "customers.customer_since"
+         "service_requests.status",
+         "plants.plant_status"
       ],
-      "Necessary Transformations": "Calculate a score based on the status of contracts, invoices, service requests, maintenance, plant status, warranty expiration, customer type, and customer since. This score will need to be weighted based on the importance of each factor to the overall customer health.",
+      "Necessary Transformations": "Calculate a weighted score based on the status of contracts, invoices, maintenance, service requests, and plant status. The weighting can be customized based on the specific requirements of the customer health score.",
       "isDirect": false
    },
    "customer_health.factors": {
-      "Source Field Name(s)": [
+      "Source Field Names": [
          "contracts.contract_status",
          "invoices.status",
          "maintenance.follow_up_required",
          "service_requests.status",
          "plants.plant_status",
          "equipment.warranty_expiration",
-         "customers.customer_type",
-         "customers.customer_since"
+         "equipment.energy_consumption"
       ],
-      "Necessary Transformations": "Combine the values of the source fields into a single string, separated by commas or other delimiters. For example, 'Active, Paid, Yes, Pending, Operational, Expired, Commercial, 2023-01-01'.",
+      "Necessary Transformations": "Combine all the above fields into a single string, separated by a delimiter (e.g., ', '). You may need to map specific values to different factors (e.g., 'Active' contract -> 'Good', 'Overdue' invoice -> 'Bad').",
       "isDirect": false
    },
    "financial_metrics.total_revenue": {
@@ -46,14 +42,14 @@
          "invoices.amount",
          "invoices.status"
       ],
-      "Necessary Transformations": "Calculate the sum of 'invoices.amount' for invoices with 'invoices.status' as 'unpaid' or 'overdue'.",
+      "Necessary Transformations": "Calculate the sum of 'invoices.amount' for invoices with 'invoices.status' as 'Unpaid'",
       "isDirect": false
    },
    "financial_metrics.payment_reliability": {
-      "Source Field Names": [
+      "Source Field Name(s)": [
          "invoices.status"
       ],
-      "Necessary Transformations": "Derive a score based on the payment history. For example, a score of 1 could be assigned to customers with consistent on-time payments, while a score of 0 could be assigned to customers with frequent late payments or outstanding balances.",
+      "Necessary Transformations": "Calculate a score based on the 'status' field in 'invoices' table. For example, 'paid' could be assigned 1, 'overdue' could be assigned 0, and 'pending' could be assigned 0.5. This score could be used to represent the customer's payment reliability.",
       "isDirect": false
    },
    "equipment_summary.equipment_id": {
@@ -70,38 +66,40 @@
       "Necessary Transformations": [],
       "isDirect": true
    },
-   "equipment_summary.efficiency_score": [
+   "equipment_summary.efficiency_score": {
+      "Source Field Name(s)": [
+         "equipment.energy_efficiency_rating"
+      ],
+      "Necessary Transformations": [
+         "Normalize the energy_efficiency_rating to a score between 0 and 1 based on a defined scale or industry standard."
+      ],
+      "isDirect": false
+   },
+   "equipment_summary.last_maintenance_date": [
       {
          "Source Field Name(s)": [
-            "equipment.energy_efficiency_rating"
+            "maintenance.maintenance_date"
          ],
          "Necessary Transformations": [
-            "Normalize the energy efficiency rating to a scale of 0 to 1"
+            "Max aggregation for each equipment_id"
          ],
          "isDirect": false
       }
    ],
-   "equipment_summary.last_maintenance_date": {
-      "Source Field Name(s)": [
-         "maintenance.maintenance_date"
-      ],
-      "Necessary Transformations": "Find the maximum value of 'maintenance.maintenance_date' for the given equipment_id",
-      "isDirect": false
-   },
    "service_insights.average_response_time": {
       "Source Field Name(s)": [
          "service_requests.request_date",
-         "service_requests.status",
-         "service_requests.assigned_technician"
+         "service_requests.status"
       ],
-      "Necessary Transformations": "Calculate the average time difference between request_date and the date when status changes to 'assigned' for each technician. Then calculate the overall average across all technicians.",
+      "Necessary Transformations": "Calculate the average time difference between request_date and the date the status changes to 'Completed' or 'Resolved'.",
       "isDirect": false
    },
    "service_insights.frequent_issues": {
       "Source Field Name(s)": [
-         "maintenance.notes"
+         "maintenance.notes",
+         "service_requests.description"
       ],
-      "Necessary Transformations": "Extract frequent issues from maintenance notes using NLP or keyword analysis.",
+      "Necessary Transformations": "Combine notes from maintenance records and descriptions from service requests, identify recurring issues and categorize them as frequent issues.",
       "isDirect": false
    }
 }
