@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "string",
+      "description": "Unique identifier for the customer"
+    },
+    "engagement_summary": {
+      "type": "object",
+      "properties": {
+        "active_contracts_count": {
+          "type": "integer",
+          "description": "Number of active contracts the customer has"
+        },
+        "total_amount_spent": {
+          "type": "number",
+          "description": "Total amount the customer has spent"
+        },
+        "average_invoice_value": {
+          "type": "number",
+          "description": "Average value of the customer's invoices"
+        },
+        "service_requests_made": {
+          "type": "integer",
+          "description": "Total number of service requests made by the customer"
+        }
+      },
+      "required": [
+        "active_contracts_count",
+        "total_amount_spent",
+        "service_requests_made"
+      ]
+    },
+    "contact_information": {
+      "type": "object",
+      "properties": {
+        "company_name": {
+          "type": "string",
+          "description": "Company name of the customer"
+        },
+        "contact_name": {
+          "type": "string",
+          "description": "Full name of the primary contact"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the primary contact"
+        },
+        "preferred_contact_method": {
+          "type": "string",
+          "description": "Preferred method of contact"
+        }
+      },
+      "required": [
+        "company_name",
+        "contact_name",
+        "email"
+      ]
+    },
+    "contract_details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contract_id": {
+            "type": "string",
+            "description": "Unique identifier for the contract"
+          },
+          "contract_type": {
+            "type": "string",
+            "description": "Type of the contract"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Contract start date"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Contract end date"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price of the contract"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the contract"
+          }
+        },
+        "required": [
+          "contract_id",
+          "contract_type",
+          "start_date",
+          "end_date",
+          "price"
+        ]
+      },
+      "description": "Details of the customer's contracts"
+    }
+  },
+  "required": [
+    "customer_id",
+    "engagement_summary",
+    "contact_information"
+  ]
+}

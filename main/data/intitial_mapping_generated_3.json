@@ -1,0 +1,66 @@
+{
+   "technician_id": {
+      "Source Field Name(s)": [
+         "technicians.technician_id"
+      ],
+      "Necessary Transformations": [],
+      "isDirect": true
+   },
+   "technician_name": {
+      "Source Field(s)": [
+         "technicians.first_name",
+         "technicians.last_name"
+      ],
+      "Necessary Transformations": "Concatenate 'technicians.first_name' and 'technicians.last_name' with a space in between.",
+      "isDirect": false
+   },
+   "certifications": {
+      "Source Field Name(s)": [
+         "technicians.certification"
+      ],
+      "Necessary Transformations": [],
+      "isDirect": true
+   },
+   "workload_summary.total_maintenance_tasks_completed": {
+      "Source Field Name(s)": [
+         "maintenance.maintenance_id"
+      ],
+      "Necessary Transformations": [
+         "Count"
+      ],
+      "isDirect": false
+   },
+   "workload_summary.average_task_duration_hours": {
+      "Source Field Name(s)": [
+         "maintenance.maintenance_duration"
+      ],
+      "Necessary Transformations": [
+         "Convert maintenance_duration from minutes to hours (divide by 60)"
+      ],
+      "isDirect": false
+   },
+   "workload_summary.pending_service_requests": [
+      {
+         "Source Field Name(s)": [
+            "service_requests.status"
+         ],
+         "Necessary Transformations": "Count the number of records in 'service_requests' table where 'status' is 'Assigned' or 'In Progress'",
+         "isDirect": false
+      }
+   ],
+   "performance_metrics.average_maintenance_duration_hours": {
+      "Source Field Name(s)": "maintenance.maintenance_duration",
+      "Necessary Transformations": "Calculate the average of 'maintenance_duration' field in 'maintenance' table",
+      "isDirect": false
+   },
+   "performance_metrics.overdue_tasks_count": [
+      {
+         "Source Field Name(s)": [
+            "maintenance.maintenance_date",
+            "maintenance.maintenance_type"
+         ],
+         "Necessary Transformations": "Calculate the difference between the maintenance_date and the scheduled due date for each maintenance record. Count the number of records where this difference is positive. Group the count by maintenance_type.",
+         "isDirect": false
+      }
+   ]
+}

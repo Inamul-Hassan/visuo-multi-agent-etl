@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "properties": {
+    "equipment_id": {
+      "type": "string",
+      "description": "Unique identifier for the equipment"
+    },
+    "performance_metrics": {
+      "type": "object",
+      "properties": {
+        "average_energy_consumption": {
+          "type": "number",
+          "description": "Average energy consumption over a specified period"
+        },
+        "operational_hours_since_last_maintenance": {
+          "type": "number",
+          "description": "Total operational hours since the last maintenance"
+        },
+        "total_downtime": {
+          "type": "number",
+          "description": "Total downtime due to maintenance or issues"
+        }
+      },
+      "required": [
+        "average_energy_consumption",
+        "operational_hours_since_last_maintenance"
+      ]
+    },
+    "maintenance_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "maintenance_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when maintenance was performed"
+          },
+          "maintenance_type": {
+            "type": "string",
+            "description": "Type of maintenance performed"
+          },
+          "technician_name": {
+            "type": "string",
+            "description": "Name of the technician who performed the maintenance"
+          },
+          "parts_used": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of parts used during maintenance"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes regarding the maintenance"
+          }
+        },
+        "required": [
+          "maintenance_date",
+          "maintenance_type",
+          "technician_name"
+        ]
+      },
+      "description": "Historical maintenance records for the equipment"
+    },
+    "warranty_status": {
+      "type": "string",
+      "enum": ["Active", "Expired"],
+      "description": "Current warranty status of the equipment"
+    }
+  },
+  "required": [
+    "equipment_id",
+    "performance_metrics",
+    "maintenance_history"
+  ]
+}

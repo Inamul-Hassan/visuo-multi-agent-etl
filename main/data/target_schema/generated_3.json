@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "technician_id": {
+      "type": "string",
+      "description": "Unique identifier for the technician"
+    },
+    "technician_name": {
+      "type": "string",
+      "description": "Full name of the technician"
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of certifications held by the technician"
+    },
+    "workload_summary": {
+      "type": "object",
+      "properties": {
+        "total_maintenance_tasks_completed": {
+          "type": "integer",
+          "description": "Total number of maintenance tasks completed"
+        },
+        "average_task_duration_hours": {
+          "type": "number",
+          "description": "Average duration (in hours) of maintenance tasks"
+        },
+        "pending_service_requests": {
+          "type": "integer",
+          "description": "Number of service requests currently assigned but not completed"
+        }
+      },
+      "required": [
+        "total_maintenance_tasks_completed",
+        "average_task_duration_hours"
+      ]
+    },
+    "performance_metrics": {
+      "type": "object",
+      "properties": {
+        "average_maintenance_duration_hours": {
+          "type": "number",
+          "description": "Average duration of all maintenance tasks"
+        },
+        "overdue_tasks_count": {
+          "type": "integer",
+          "description": "Number of tasks completed after their scheduled due dates"
+        }
+      },
+      "required": [
+        "average_maintenance_duration_hours"
+      ]
+    }
+  },
+  "required": [
+    "technician_id",
+    "technician_name",
+    "workload_summary"
+  ]
+}

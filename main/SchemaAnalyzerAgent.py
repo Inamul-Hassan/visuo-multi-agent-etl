@@ -86,7 +86,7 @@ class SchemaAnalyzerAgent:
     
     def prompt(self,prompt_type:int,target_field:str|None=None,target_details:dict|None=None)->str:
         '''
-        Function takes in the prompt type and returnt the required prompt template.
+        Function takes in the prompt type and returns the required prompt template.
         prompt_type: int: Type of prompt to generate
         target_field[optional]: str: Target field name
         target_details[optional]: dict: Details of the target field
@@ -129,6 +129,6 @@ class SchemaAnalyzerAgent:
             except Exception as e:
                 print(f"Error Response is not in the expected format {response}: {e}")
                 continue
-        self.save_to_json(self.mapping, "main\data\intitial_mapping.json")
+        self.save_to_json(self.mapping, "main\data\intitial_mapping_generated_3.json")
         # Debug
         #print(self.mapping)
